@@ -56,6 +56,16 @@ def main():
     print('\nHand after adding 5 cards:')
     print(my_hand)
 
+    your_hand = Hand()
+    my_hand.give(card1, your_hand)
+    my_hand.give(card2, your_hand)
+    print("\nmy_hand give (cards) to your_hand.")
+    print("----------------------------------")
+    print("My hand:")
+    print(your_hand)
+    print("MYour hand:")
+    print(my_hand)
+
 
 if __name__ == '__main__':
     main()
