@@ -55,9 +55,14 @@ class Deck(Hand):
     def shuffle(self):
         random.shuffle(self.cards)
 
-        def deal(self, hands, per_hand=1):
-            pass
-
+    def deal(self, hands, per_hand=1):
+        for rounds in range(per_hand):
+            for hand in hands:
+                if self.cards:
+                    top_card = self.cards[0]
+                    self.give(top_card, hand)
+                else:
+                    print("No more cards.!")
 
 def main():
     deck1 = Deck()
@@ -70,6 +75,19 @@ def main():
 
     deck1.shuffle()
     print("\nshuffle deck.")
+    print(deck1)
+
+    my_hand = Hand()
+    your_hand = Hand()
+    hands = [my_hand, your_hand]
+    deck1.deal(hands, per_hand=5)
+
+    print("\nDeals 5 cards to players.")
+    print("My hand:")
+    print(my_hand)
+    print("Your hand:")
+    print(your_hand)
+    print("deck:")
     print(deck1)
 
 if __name__ == '__main__':
