@@ -64,6 +64,7 @@ class Deck(Hand):
                 else:
                     print("No more cards.!")
 
+
 def main():
     deck1 = Deck()
     print("Deck:")
