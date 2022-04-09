@@ -1,3 +1,6 @@
+import random
+
+
 class Card:
     """ Karta do gry. """
     RANKS = ["A", "2", "3", "4", "5", "6", "7",
@@ -39,18 +42,18 @@ class Hand:
         other_hand.add(card)
 
 
-
-
 class Deck(Hand):
+
     """ Talia kart do gry. """
 
     def populate(self):
+
         for suit in Card.SUITS:
             for rank in Card.RANKS:
                 self.add(Card(rank, suit))  # !
 
-        def shuffle(self):
-            pass
+    def shuffle(self):
+        random.shuffle(self.cards)
 
         def deal(self, hands, per_hand=1):
             pass
@@ -65,6 +68,9 @@ def main():
     print("Populated deck:")
     print(deck1)
 
+    deck1.shuffle()
+    print("\nshuffle deck.")
+    print(deck1)
 
 if __name__ == '__main__':
     main()
