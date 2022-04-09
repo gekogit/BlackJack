@@ -28,7 +28,7 @@ class Hand:
             for card in self.cards:
                 rep += str(card) + " "
         else:
-            rep = "<pusta>"
+            rep = "<empty>"
         return rep
 
     def clear(self):
@@ -90,6 +90,10 @@ def main():
     print(your_hand)
     print("deck:")
     print(deck1)
+
+    deck1.clear()
+    print("Deck after cleaning:", deck1)
+    input("\n\nPress Enter to close.")
 
 
 if __name__ == '__main__':
