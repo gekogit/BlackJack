@@ -66,6 +66,11 @@ def main():
     print("MYour hand:")
     print(my_hand)
 
+    my_hand.clear()
+    print("\nMy hand after clearing:")
+    print(my_hand)
+    input("\n\nPress Enter to close.")
+
 
 if __name__ == '__main__':
     main()
