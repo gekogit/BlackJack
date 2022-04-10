@@ -88,7 +88,6 @@ class BJ_Player(BJ_Hand):
 
 class BJ_Dealer(BJ_Hand):
 
-
     def is_hitting(self):
         return self.total < 17
 
@@ -108,7 +107,13 @@ class BjGame(object):
 
         for name in names:
             player = BJ_Player(name)
-            player.credit = int(input(f'{name}, how much money do you have in the pocket (for game):'))
+            wallet = None
+            while wallet not in range(0, 1000):
+                try:
+                    wallet = int(input(f'{name}, how much money do you have in the pocket for game (0-1000):'))
+                except Exception:
+                    print('Not recognised number. Type again.')
+            player.credit = wallet
             self.players.append(player)
 
         self.dealer = BJ_Dealer('Dealer')
@@ -139,7 +144,13 @@ class BjGame(object):
         self.dealer.flip_first_card()  # hide first card
         for player in self.players:
             print(player)
-            temp = int(input(f'{player.name}, How much you bet? Max({player.credit}):'))
+            temp = None
+            while temp not in range(0, player.credit):
+                try:
+                    temp = int(input(f'{player.name}, How much you bet? Max({player.credit}):'))
+                except Exception:
+                    print('Not recognised number. Type integers')
+
             player.credit = player.credit - temp
             self.pool += temp
 
