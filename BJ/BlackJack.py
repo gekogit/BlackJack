@@ -79,9 +79,6 @@ class BJ_Player(BJ_Hand):
 
 
 class BJ_Dealer(BJ_Hand):
-    def __init__(self, name):
-        self.name = name
-        self.cards = []
 
     def is_hitting(self):
         return self.total < 17
@@ -125,9 +122,7 @@ class BjGame(object):
 
     def play(self):
         # 2 cards for each player
-        self.deck.deal(self.players, per_hand=2)
-        self.deck.deal([self.dealer], per_hand=2)
-        #self.deck.deal(self.players + [self.dealer], per_hand=2)
+        self.deck.deal(self.players + [self.dealer], per_hand=2)
 
         self.dealer.flip_first_card()  # hide first card
         for player in self.players:
