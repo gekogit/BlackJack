@@ -11,7 +11,7 @@ class Player(object):
 
 def ask_yes_no(question):
     response = None
-    while response not in ("t", "n"):
+    while response not in ("y", "n"):
         response = input(question).lower()
     return response
 
